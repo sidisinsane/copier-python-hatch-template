@@ -28,17 +28,17 @@ jobs:
         python-version: ['3.12']
 
     steps:
-      # Needed by mkdocs gh-deploy
-      - name: Configure Git Credentials
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
           repository: ${{ github.repository }}
           token: ${{ github.token }}
+
+      # Needed by mkdocs gh-deploy
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
