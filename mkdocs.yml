@@ -1,0 +1,102 @@
+site_name: "Copier Python Hatch Template"
+site_description: "A Copier template for Python projects managed by Hatch."
+site_url: "https://sidisinsane.github.io/copier-python-hatch-template"
+site_dir: "docs"
+docs_dir: "mkdocs"
+repo_url: "https://github.com/sidisinsane/copier-python-hatch-template"
+repo_name: "sidisinsane/copier-python-hatch-template"
+edit_uri: "edit/main/docs/"
+copyright: "Copyright &copy; 2024 Dirk Sidney Jansen."
+
+exclude_docs: |
+  draft.*.md
+
+plugins:
+  - offline
+  - search
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+
+theme:
+  name: material
+  language: en
+  favicon: images/favicon.svg
+  icon:
+    logo: fontawesome/solid/book-open
+    repo: fontawesome/brands/git-alt
+
+  features:
+    - announce.dismiss
+    # - content.action.edit
+    # - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+    - header.autohide
+    - navigation.footer
+    - navigation.indexes
+    - navigation.sections
+    #- navigation.tabs
+    #- navigation.tabs.sticky
+    - navigation.tracking
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - toc.follow
+    - toc.integrate
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep-purple
+      accent: yellow
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: yellow
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - footnotes
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - sane_lists
+  - smarty:
+      smart_dashes: true
+      smart_quotes: true
+      smart_angled_quotes: true
+      smart_ellipses: true
+  - toc:
+      permalink: "#"
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/sidisinsane
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/sidisinsane

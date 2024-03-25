@@ -1,0 +1,123 @@
+<h1 align="center">
+    <br>
+    <a title="Home" href="https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}">
+        <img alt="Project Logo" src="mkdocs/images/logo.svg" width="200">
+    </a>
+    <br>
+    {{ project_name }}
+    <br>
+</h1>
+
+<p align="center">
+  <i align="center">{{ project_description }}</i>
+</p>
+
+<p align="center">
+    <a title="License" href="https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}/blob/main/LICENSE">
+        <img alt="License" src="https://img.shields.io/github/license/{{ repository_namespace }}/{{ repository_name }}">
+    </a>
+    <a title="CI Status" href="https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}/blob/main/.github/workflows/ci.yml">
+        <img alt="CI Status" src="https://img.shields.io/github/actions/workflow/status/{{ repository_namespace }}/{{ repository_name }}/ci.yml?logo={{ repository_provider.rsplit(".", 1)[0] }}&label=ci">
+    </a>
+    <a title="CodeQL Status" href="https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}/blob/main/.github/workflows/codeql.yml">
+        <img alt="CodeQL Status" src="https://img.shields.io/github/actions/workflow/status/{{ repository_namespace }}/{{ repository_name }}/codeql.yml?logo={{ repository_provider.rsplit(".", 1)[0] }}&label=codeql">
+    </a>
+    <a title="Deploy Status" href="https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}/blob/main/.github/workflows/deploy.yml">
+        <img alt="Deploy Status" src="https://img.shields.io/github/actions/workflow/status/{{ repository_namespace }}/{{ repository_name }}/deploy.yml?logo={{ repository_provider.rsplit(".", 1)[0] }}&label=deploy">
+    </a>
+    <a title="Test Status" href="https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}/blob/main/.github/workflows/test.yml">
+        <img alt="Test Status" src="https://img.shields.io/github/actions/workflow/status/{{ repository_namespace }}/{{ repository_name }}/test.yml?logo={{ repository_provider.rsplit(".", 1)[0] }}&label=test">
+    </a>
+</p>
+
+<p align="center">
+    <a title="Python Version" href="https://www.python.org/">
+        <img alt="Python Version" src="https://img.shields.io/python/required-version-toml?tomlFilePath=https://raw.githubusercontent.com/{{ repository_namespace }}/{{ repository_name }}/main/pyproject.toml&logo=python&logoColor=white&label=Python">
+    </a>
+    <a title="Hatch" href="ttps://github.com/pypa/hatch">
+        <img alt="Hatch" src="https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg">
+    </a>
+    <a title="Material for MkDocs" href="https://squidfunk.github.io/mkdocs-material/">
+        <img alt="Material for MkDocs" src="https://img.shields.io/badge/Material_for_MkDocs-526CFE?logo=MaterialForMkDocs&logoColor=white">
+    </a>
+    <a title="Pytest" href="https://pytest.org/">
+        <img alt="Pytest" src="https://img.shields.io/badge/Pytest-0a9edc?logo=pytest&amp;logoColor=white&labelColor=4b5563">
+    </a>
+    <a title="Markdownlint" href="https://github.com/DavidAnson/markdownlint">
+        <img alt="Markdownlint" src="https://img.shields.io/badge/Markdownlint-000000?logo=markdown&amp;logoColor=white&labelColor=4b5563">
+    </a>
+    <a title="Commitlint" href="https://commitlint.js.org/">
+        <img alt="Commitlint" src="https://img.shields.io/badge/Commitlint-3451b2?logo=commitlint&amp;logoColor=white&labelColor=4b5563">
+    </a>
+    <a title="Ruff" href="https://docs.astral.sh/ruff/">
+        <img alt="Ruff" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json">
+    </a>
+    <a title="Bandit" href="https://github.com/PyCQA/bandit">
+        <img alt="Bandit" src="https://img.shields.io/badge/Bandit-4b5563">
+    </a>
+    <a title="Mypy" href="https://mypy-lang.org/">
+        <img alt="Mypy" src="https://img.shields.io/badge/Mypy-4b5563">
+    </a>
+</p>
+
+---
+
+## Prerequisites
+
+### Hatch
+
+[Hatch](https://hatch.pypa.io/latest/) is a modern, [PEP 621](https://peps.python.org/pep-0621/) compliant, extensible Python project manager.
+
+#### Install Hatch
+
+```shell
+pipx install hatch
+```
+
+#### Configure Hatch
+
+Store virtual environments in a directory named `.hatch` in each project directory.
+
+```shell
+hatch config set dirs.env.virtual .hatch
+```
+
+??? note
+
+    This adds the following to the configuration:
+    ```toml
+    [dirs.env]
+    virtual = ".hatch"
+    ```
+    The [Configuration for Hatch](https://hatch.pypa.io/latest/config/hatch/) is stored in a `config.toml` file at i.e. `~/Library/Application Support/hatch` on macOS.
+
+## Usage
+
+### Create Virtual Environment
+
+```shell
+cd PATH/TO/DESTINATION && hatch env create
+```
+
+??? note
+
+    You can locate environments by running `hatch env find`.
+
+### Install Pre-Commit Hooks
+
+```shell
+git init && hatch run dev:pre-commit-install
+```
+
+??? note
+
+    After you have created a new empty GitHub project, you are ready to make your initial commit.
+    ```shell
+    git add .
+    git commit -m "initial commit"
+    git branch -M main
+    git remote add origin https://github.com/REPO_NAMESPACE/REPO_NAME.git
+    git push -u origin main
+    ```
+
+See the [documentation](https://{{ repository_namespace }}.{{ repository_provider.rsplit(".", 1)[0] }}.io/{{ repository_name }}/) for more details.

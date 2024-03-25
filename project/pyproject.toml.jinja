@@ -1,0 +1,111 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "{{ python_package_distribution_name }}"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.8"
+license = "{{ copyright_license }}"
+keywords = []
+authors = [
+  { name = "{{ author_fullname }}", email = "{{ author_email }}" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "numpy>=1.26.4"
+]
+
+[project.urls]
+Documentation = "https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}#readme"
+Issues = "https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}/issues"
+Source = "https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}"
+
+[tool.hatch.version]
+path = "src/{{ python_package_import_name }}/__about__.py"
+
+[tool.hatch.envs.default]
+dependencies = [
+  "coverage[toml]>=7.4.4",
+  "pytest>=8.1.1",
+  "pytest-cov>=4.1.0"
+]
+
+[tool.hatch.envs.default.scripts]
+test = "pytest {args:tests}"
+test-cov = "coverage run -m pytest {args:tests}"
+cov-report = [
+  "- coverage combine",
+  "coverage report",
+]
+cov = [
+  "test-cov",
+  "cov-report",
+]
+
+[tool.hatch.envs.docs]
+dependencies = [
+  "mkdocs>=1.5.3",
+  "mkdocs-material>=9.5.15",
+  "pymdown-extensions>=10.7.1"
+]
+
+[tool.hatch.envs.docs.scripts]
+build = "mkdocs build --clean --strict"
+serve = "mkdocs serve --dev-addr localhost:8000"
+deploy = "mkdocs gh-deploy --force --clean --verbose"
+
+[tool.hatch.envs.dev]
+dependencies = [
+  "ruff>=0.3.4",
+  "bandit>=1.7.8",
+  "pre-commit>=3.6.2"
+]
+
+[tool.hatch.envs.dev.scripts]
+check = "ruff check ."
+fix = "ruff check --fix ."
+secure = "bandit -c bandit.yml -r ."
+pre-commit-install = "pre-commit install && pre-commit install --hook-type commit-msg"
+pre-commit-all = "pre-commit run --all-files"
+
+[[tool.hatch.envs.all.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11", "3.12"]
+
+[tool.hatch.envs.types]
+dependencies = [
+  "mypy>=1.9.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/{{ python_package_import_name }} tests}"
+
+[tool.coverage.run]
+source_pkgs = ["{{ python_package_import_name }}", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/{{ python_package_import_name }}/__about__.py",
+]
+
+[tool.coverage.paths]
+{{ python_package_import_name }} = ["src/{{ python_package_import_name }}", "*/{{ python_package_distribution_name }}/src/{{ python_package_import_name }}"]
+tests = ["tests", "*/{{ python_package_distribution_name }}/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]

@@ -1,0 +1,3 @@
+[pylint.messages control]
+disable = missing-docstring
+disable = import-error

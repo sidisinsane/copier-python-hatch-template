@@ -1,0 +1,112 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "copier-python-hatch-template"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Dirk Sidney Jansen", email = "sidisinsane@users.noreply.github.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "numpy>=1.26.4"
+]
+
+[project.urls]
+Documentation = "https://github.com/sidisinsane/copier-python-hatch-template#readme"
+Issues = "https://github.com/sidisinsane/copier-python-hatch-template/issues"
+Source = "https://github.com/sidisinsane/copier-python-hatch-template"
+
+[tool.hatch.version]
+path = "src/copier_python_hatch_template/__about__.py"
+
+[tool.hatch.envs.default]
+dependencies = [
+  "coverage[toml]>=7.4.4",
+  "pytest>=8.1.1",
+  "pytest-cov>=4.1.0",
+  "pytest-copie>=0.1.6"
+]
+
+[tool.hatch.envs.default.scripts]
+test = "pytest {args:tests}"
+test-cov = "coverage run -m pytest {args:tests}"
+cov-report = [
+  "- coverage combine",
+  "coverage report",
+]
+cov = [
+  "test-cov",
+  "cov-report",
+]
+
+[tool.hatch.envs.docs]
+dependencies = [
+  "mkdocs>=1.5.3",
+  "mkdocs-material>=9.5.15",
+  "pymdown-extensions>=10.7.1"
+]
+
+[tool.hatch.envs.docs.scripts]
+build = "mkdocs build --clean --strict"
+serve = "mkdocs serve --dev-addr localhost:8000"
+deploy = "mkdocs gh-deploy --force --clean --verbose"
+
+[tool.hatch.envs.dev]
+dependencies = [
+  "ruff>=0.3.4",
+  "bandit>=1.7.8",
+  "pre-commit>=3.6.2"
+]
+
+[tool.hatch.envs.dev.scripts]
+check = "ruff check ."
+fix = "ruff check --fix ."
+secure = "bandit -c bandit.yml -r ."
+pre-commit-install = "pre-commit install && pre-commit install --hook-type commit-msg"
+pre-commit-all = "pre-commit run --all-files"
+
+[[tool.hatch.envs.all.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11", "3.12"]
+
+[tool.hatch.envs.types]
+dependencies = [
+  "mypy>=1.9.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/copier_python_hatch_template tests}"
+
+[tool.coverage.run]
+source_pkgs = ["copier_python_hatch_template", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/copier_python_hatch_template/__about__.py",
+]
+
+[tool.coverage.paths]
+copier_python_hatch_template = ["src/copier_python_hatch_template", "*/copier-python-hatch-template/src/copier_python_hatch_template"]
+tests = ["tests", "*/copier-python-hatch-template/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]

@@ -1,0 +1,15 @@
+[run]
+branch = True
+
+[paths]
+source = src/
+
+[report]
+skip_empty = True
+ignore_errors = True
+
+[html]
+directory = reports/html
+
+[xml]
+output = reports/coverage.xml

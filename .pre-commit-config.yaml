@@ -1,0 +1,61 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  # general checks (see here: https://pre-commit.com/hooks.html)
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-merge-conflict
+
+  # Commitlint - Lint commit messages
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: v9.13.0
+    hooks:
+      - id: commitlint
+        stages: [commit-msg]
+        additional_dependencies: ["@commitlint/config-conventional"]
+
+  # Ruff - Coding & Docstring Conventions
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.2
+    hooks:
+      # Run the linter.
+      - id: ruff
+        args: [--fix]
+      # Run the formatter.
+      - id: ruff-format
+
+  # Markdownlint
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: "v0.39.0"
+    hooks:
+      - id: markdownlint
+        args: [--fix]
+        stages: [commit]
+
+  # Bandit - Find common security issues
+  - repo: https://github.com/pycqa/bandit
+    rev: 1.7.8
+    hooks:
+      - id: bandit
+        args: ["-c", "bandit.yml", "-r", "."]
+
+  # Mypy - Static type checker
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.9.0
+    hooks:
+      - id: mypy
+
+  # Build docs
+  - repo: local
+    hooks:
+      - id: mkdocs-build
+        name: Build MkDocs
+        entry: hatch
+        args: ["run", "docs:build"]
+        language: system
+        types: ["python"]
+        pass_filenames: false
+
+ci:
+  skip: [pytest]

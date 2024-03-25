@@ -1,0 +1,35 @@
+{
+    // Path to Python interpreter
+    "python.defaultInterpreterPath": "${workspaceFolder}/.hatch/copier-python-hatch-template/bin/python3.12",
+    
+    // Disable unittest
+    "python.testing.unittestEnabled": false,
+    
+    // Enable pytest
+    "python.testing.pytestEnabled": true,
+    
+    // Arguments for pytest
+    "python.testing.pytestArgs": ["tests"],
+    
+    // Path to pytest
+    "python.testing.pytestPath": "${workspaceFolder}/.hatch/copier-python-hatch-template/bin/pytest",
+
+    "[python]": {
+      "editor.formatOnSave": true,
+      "editor.formatOnPaste": true,
+      "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit"
+      },
+      "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    
+    "[markdown]": {
+      "editor.formatOnSave": true,
+      "editor.formatOnPaste": true,
+      "editor.codeActionsOnSave": {
+        "source.fixAll.markdownlint": "explicit"
+      },
+      "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    },
+    "markdownlint.run": "onSave",
+}
