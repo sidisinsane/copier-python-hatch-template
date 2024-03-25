@@ -1,0 +1,26 @@
+# Allow imports relative to the "src" and "test" directories.
+src = ["src", "tests"]
+
+[lint]
+select = [
+    "D", # Select all pydocstyle docstring rules
+]
+
+extend-select = [
+    "F", # Select all pyflakes rules
+    "E", # Select all pycodestyle error rules
+    "W", # Select all pycodestyle error rules
+    "I", # Select all isort rules
+]
+
+ignore = [
+    # Relax the pydocstyle convention...
+    "D100", # Ignore rule `missing docstring in public module`
+    "D104", # Ignore rule `undocumented-public-package`
+    "D107", # Ignore rule `missing docstring in __init__`
+    "D417", # Ignore rule `undocumented-param`
+    "E501", # Ignore rule `line too long`
+]
+
+[lint.pydocstyle]
+convention = "pep257"
