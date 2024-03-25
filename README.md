@@ -25,8 +25,6 @@
 [![Mypy](https://img.shields.io/badge/Mypy-4b5563)](https://mypy-lang.org/)
 </div>
 
----
-
 ## Prerequisites
 
 ### Copier
