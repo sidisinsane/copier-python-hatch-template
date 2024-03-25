@@ -1,9 +1,11 @@
 <div align="center">
-<h1>
-[![Home](mkdocs/images/logo.svg)](https://github.com/sidisinsane/copier-python-hatch-template)
-</h1>
+<a title="Home" href="https://github.com/sidisinsane/copier-python-hatch-template">
+    <img alt="Project Logo" src="mkdocs/images/logo.svg" width="200">
+</a>
 
-<i>Copier Python Hatch Template</i>
+# Copier Python Hatch Template
+
+*A Copier template for Python projects managed by Hatch.*
 
 [![License](https://img.shields.io/github/license/sidisinsane/copier-python-hatch-template)](https://github.com/sidisinsane/copier-python-hatch-template/blob/main/LICENSE)
 [![CI Status](https://img.shields.io/github/actions/workflow/status/sidisinsane/copier-python-hatch-template/ci.yml?logo=github&label=ci)](https://github.com/sidisinsane/copier-python-hatch-template/blob/main/.github/workflows/ci.yml)
