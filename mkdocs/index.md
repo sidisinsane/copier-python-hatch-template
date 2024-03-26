@@ -122,6 +122,50 @@ or
 copier copy --trust gh:sidisinsane/copier-python-hatch-template PATH/TO/DESTINATION
 ```
 
+This will generate a new project with the following structure:
+
+```ascii
+YOUR-PROJECT-NAME
+├── .github
+│   └── workflows
+│       ├── ci.yml
+│       ├── codeql.yml
+│       ├── deploy.yml
+│       └── test.yml
+├── .vscode
+│   ├── extensions.json
+│   └── settings.json
+├── mkdocs
+│   ├── images
+│   │   ├── favicon.svg
+│   │   └── logo.svg
+│   ├── javascripts
+│   │   └── mathjax.js
+│   ├── index.md
+│   └── license.md
+├── src
+│   └── YOUR_PROJECT_NAME
+│       ├── __about__.py
+│       ├── __init__.py
+│       └── calc.py
+├── tests
+│   ├── __init__.py
+│   └── test_calc.py
+├── .coveragerc
+├── .gitignore
+├── .markdownlint.yml
+├── .pre-commit-config.yaml
+├── .pylintrc
+├── bandit.yml
+├── commitlint.config.js
+├── LICENSE
+├── mkdocs.yml
+├── mypy.ini
+├── pyproject.toml
+├── pytest.ini
+└── README.md
+```
+
 ??? note
 
     You can also clone the project template using `git clone https://github.com/sidisinsane/copier-python-hatch-template.git`, modify it and generate a project the locally cloned repo.
