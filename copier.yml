@@ -16,25 +16,25 @@ _skip_if_exists:
 # PROMPT --------------------------------
 project_name:
   type: str
-  help: Your project name
+  help: Your project name (main heading)
 
 project_description:
   type: str
-  help: Your project description
+  help: Your project description (main description)
 
 author_fullname:
   type: str
-  help: Your full name
+  help: Your full name (project.authors.name in pyproject.toml)
   default: "{{ 'Dirk Sidney Jansen' | git_user_name }}"
 
 author_email:
   type: str
-  help: Your email
+  help: Your email (project.authors.email in pyproject.toml)
   default: "{{ 'sidisinsane@users.noreply.github.com' | git_user_email }}"
 
 author_username:
   type: str
-  help: Your username (e.g. on GitHub)
+  help: Your GitHub username
   default: sidisinsane
 
 repository_provider:
