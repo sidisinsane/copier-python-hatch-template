@@ -17,12 +17,14 @@
 <a title="CodeQL Status" href="https://github.com/sidisinsane/copier-python-hatch-template/blob/main/.github/workflows/codeql.yml">
     <img alt="CodeQL Status" src="https://img.shields.io/github/actions/workflow/status/sidisinsane/copier-python-hatch-template/codeql.yml?logo=github&label=codeql">
 </a>
-<a title="Deploy Status" href="https://github.com/sidisinsane/copier-python-hatch-template/blob/main/.github/workflows/deploy.yml">
-    <img alt="Deploy Status" src="https://img.shields.io/github/actions/workflow/status/sidisinsane/copier-python-hatch-template/deploy.yml?logo=github&label=deploy">
+<a title="GH-Pages Deploy Status" href="https://github.com/sidisinsane/copier-python-hatch-template/blob/main/.github/workflows/deploy.yml">
+    <img alt="GH-Pages Deploy Status" src="https://img.shields.io/github/actions/workflow/status/sidisinsane/copier-python-hatch-template/gh-pages-deploy.yml?logo=github&label=gh-pages-deploy">
 </a>
+<!--
 <a title="Test Status" href="https://github.com/sidisinsane/copier-python-hatch-template/blob/main/.github/workflows/test.yml">
     <img alt="Test Status" src="https://img.shields.io/github/actions/workflow/status/sidisinsane/copier-python-hatch-template/test.yml?logo=github&label=test">
 </a>
+-->
 </p>
 
 <p>
@@ -130,7 +132,7 @@ YOUR-PROJECT-NAME
 │   └── workflows
 │       ├── ci.yml
 │       ├── codeql.yml
-│       ├── deploy.yml
+│       ├── gh-pages-deploy.yml
 │       └── test.yml
 ├── .vscode
 │   ├── extensions.json

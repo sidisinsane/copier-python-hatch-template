@@ -1,29 +1,22 @@
-name: deploy
+# Source: https://github.com/squidfunk/mkdocs-material/blob/master/docs/publishing-your-site.md
+name: gh-pages-deploy
 
 on:
-  push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
+    push:
+      branches: [main, master]
+    pull_request:
+      branches: [main, master]
 
-concurrency:
-  group: deploy-${{ github.head_ref }}
-  cancel-in-progress: true
-
-env:
-  PYTHONUNBUFFERED: '1'
-  FORCE_COLOR: '1'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
-  run:
+  deploy:
     name: Python ${{ matrix.python-version }} on ${{ startsWith(matrix.os, 'macos-') && 'macOS' || startsWith(matrix.os, 'windows-') && 'Windows' || 'Linux' }}
     runs-on: ${{ matrix.os }}
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
     strategy:
-      fail-fast: false
       matrix:
         os: [ubuntu-latest]
         python-version: ['3.12']
@@ -34,21 +27,27 @@ jobs:
         with:
           repository: ${{ github.repository }}
           token: ${{ github.token }}
-
-      # Needed by mkdocs gh-deploy
+      
       - name: Configure Git Credentials
-        # see https://api.github.com/users/github-actions[bot]
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install Hatch
-        run: pip install --upgrade hatch
+      # Store the `cache_id` environmental variable to access it later during cache
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
 
-      - name: Deploy docs
-        run: hatch run docs:deploy
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+
+      - run: pip install mkdocs mkdocs-material pymdown-extensions
+
+      - run: mkdocs gh-deploy --force

@@ -1,5 +1,5 @@
 # Source: https://github.com/squidfunk/mkdocs-material/blob/master/docs/publishing-your-site.md
-name: gh-deploy
+name: gh-pages-deploy
 
 on:
     push:
