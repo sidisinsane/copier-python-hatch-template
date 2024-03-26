@@ -10,7 +10,7 @@
 [![License](https://img.shields.io/github/license/sidisinsane/copier-python-hatch-template)](https://github.com/sidisinsane/copier-python-hatch-template/blob/main/LICENSE)
 [![CI Status](https://img.shields.io/github/actions/workflow/status/sidisinsane/copier-python-hatch-template/ci.yml?logo=github&label=ci)](https://github.com/sidisinsane/copier-python-hatch-template/blob/main/.github/workflows/ci.yml)
 [![CodeQL Status](https://img.shields.io/github/actions/workflow/status/sidisinsane/copier-python-hatch-template/codeql.yml?logo=github&label=codeql)](https://github.com/sidisinsane/copier-python-hatch-template/blob/main/.github/workflows/codeql.yml)
-[![GH-Pages Deploy Status](https://img.shields.io/github/actions/workflow/status/sidisinsane/copier-python-hatch-template/deploy.yml?logo=github&label=gh-pages-deploy)](https://github.com/sidisinsane/copier-python-hatch-template/blob/main/.github/workflows/gh-pages-deploy.yml)
+[![GH-Pages Deploy Status](https://img.shields.io/github/actions/workflow/status/sidisinsane/copier-python-hatch-template/gh-pages-deploy.yml?logo=github&label=gh-pages-deploy)](https://github.com/sidisinsane/copier-python-hatch-template/blob/main/.github/workflows/gh-pages-deploy.yml)
 <!--[![Test Status](https://img.shields.io/github/actions/workflow/status/sidisinsane/copier-python-hatch-template/test.yml?logo=github&label=test)](https://github.com/sidisinsane/copier-python-hatch-template/blob/main/.github/workflows/test.yml)-->
 
 [![Python Version](https://img.shields.io/python/required-version-toml?tomlFilePath=https://raw.githubusercontent.com/sidisinsane/copier-python-hatch-template/main/pyproject.toml&logo=python&logoColor=white&label=Python)](https://www.python.org/)

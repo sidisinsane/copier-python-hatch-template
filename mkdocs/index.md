@@ -17,7 +17,7 @@
 <a title="CodeQL Status" href="https://github.com/sidisinsane/copier-python-hatch-template/blob/main/.github/workflows/codeql.yml">
     <img alt="CodeQL Status" src="https://img.shields.io/github/actions/workflow/status/sidisinsane/copier-python-hatch-template/codeql.yml?logo=github&label=codeql">
 </a>
-<a title="GH-Pages Deploy Status" href="https://github.com/sidisinsane/copier-python-hatch-template/blob/main/.github/workflows/deploy.yml">
+<a title="GH-Pages Deploy Status" href="https://github.com/sidisinsane/copier-python-hatch-template/blob/main/.github/workflows/gh-pages-deploy.yml">
     <img alt="GH-Pages Deploy Status" src="https://img.shields.io/github/actions/workflow/status/sidisinsane/copier-python-hatch-template/gh-pages-deploy.yml?logo=github&label=gh-pages-deploy">
 </a>
 <!--
