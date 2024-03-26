@@ -12,6 +12,12 @@ exclude_docs: |
   draft.*.md
 
 plugins:
+  - mkdocs-nav-weight:
+      section_renamed: false
+      index_weight: -10
+      warning: true
+      reverse: false
+      headless_included: false
   - offline
   - search
 

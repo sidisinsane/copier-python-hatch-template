@@ -61,56 +61,7 @@
 </p>
 </div>
 
-## Prerequisites
-
-### Copier
-
-[Copier](https://copier.readthedocs.io/en/stable/) is a library and CLI app for rendering project templates.
-
-#### Install Copier
-
-???+ note "Requirement"
-
-    If you haven't already, install `pipx` first: `pip install --user pipx`.
-
-```shell
-pipx install copier
-```
-
-#### Inject Copier Templates Extensions
-
-```shell
-pipx inject copier copier-templates-extensions
-```
-
-### Hatch
-
-[Hatch](https://hatch.pypa.io/latest/) is a modern, [PEP 621](https://peps.python.org/pep-0621/) compliant, extensible Python project manager.
-
-#### Install Hatch
-
-```shell
-pipx install hatch
-```
-
-#### Configure Hatch
-
-Store virtual environments in a directory named `.hatch` in each project directory.
-
-```shell
-hatch config set dirs.env.virtual .hatch
-```
-
-??? note
-
-    This adds the following to the configuration:
-    ```toml
-    [dirs.env]
-    virtual = ".hatch"
-    ```
-    The [Configuration for Hatch](https://hatch.pypa.io/latest/config/hatch/) is stored in a `config.toml` file at i.e. `~/Library/Application Support/hatch` on macOS.
-
-## Usage
+## Quickstart
 
 ### Generate a Project
 
