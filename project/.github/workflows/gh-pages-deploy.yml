@@ -48,6 +48,6 @@ jobs:
           restore-keys: |
             mkdocs-material-
 
-      - run: pip install mkdocs mkdocs-material pymdown-extensions
+      - run: pip install mkdocs mkdocs-material pymdown-extensions mkdocs-nav-weight
 
       - run: mkdocs gh-deploy --force
